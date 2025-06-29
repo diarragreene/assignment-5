@@ -9,23 +9,32 @@
     "fix-lint": "eslint --fix ./**/*.ts",
     "check-types": "tsc --noEmit",
     "test": "vitest",
-    "test:ci": "vitest run"
+    "test:ci": "vitest run",
+    "typecheck": "./generate-openapi.sh && tsc --noEmit",
+    "dev": "./generate-openapi.sh && nodemon src/server.ts",
+   "start": "./generate-openapi.sh && node build/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^5.0.0",
+    "@koa/router": "^13.1.0",
     "koa": "^2.15.2",
+    "koa-bodyparser": "^4.4.1",
     "koa-qs": "^3.0.0",
     "koa-zod-router": "^2.2.0",
+    "koa2-swagger-ui": "^5.11.0",
     "mongodb": "^6.5.0",
+    "tsoa": "^6.6.0",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/koa": "~2.15.0",
     "@types/koa__cors": "~5.0.0",
+    "@types/koa__router": "^12.0.4",
+    "@types/koa-bodyparser": "^4.3.12",
     "@types/koa-qs": "~2.0.3",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "eslint": "^8.57.0",
@@ -35,6 +44,6 @@
     "eslint-plugin-promise": "^6.1.1",
     "mongodb-memory-server": "^9.1.8",
     "typescript": "^5.4.3",
-    "vitest": "^1.4.0"
+    "vitest": "^1.6.1"
   }
 }
